@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot.projectEx.dao.IMemberDAO">
+  	<!-- <resultMap id="prdResult" type="com.spring_boot.projectEx.model.MemberVO">
+  		<result property="prdNo" column="prdNo"/>
+  		<result property="prdName" column="prdName"/>
+  		<result property="prdPrice" column="prdPrice"/>
+  		<result property="prdCompany" column="prdCompany"/>
+  		<result property="prdStock" column="prdStock"/>
+  		<result property="prdDate" column="prdDate"/>
+  	</resultMap> -->
+  	  	
+  	  <select id="loginCheck" parameterType="hashmap" resultType="string">
+  	  	SELECT memId FROM member WHERE memId=#{id} AND memPwd=#{pwd}
+  	  </select>	
+  	  	
+  </mapper>

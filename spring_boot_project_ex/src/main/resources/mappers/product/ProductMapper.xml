@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  <mapper namespace="com.spring_boot.projectEx.dao.IProductDAO">
+	<resultMap id="prdResult" type="com.spring_boot.projectEx.model.ProductVO" >
+		<result property="prdNo" column="prdNo"/>
+		<result property="prdName" column="prdName"/>
+		<result property="prdPrice" column="prdPrice"/>
+		<result property="prdCompany" column="prdCompany"/>
+		<result property="prdStock" column="prdStock"/>
+		<result property="prdDescript" column="prdDescript"/>
+		<result property="prdImg" column="prdImg"/>
+		<result property="ctgId" column="ctgId"/>
+	</resultMap>
+	
+	<!-- 카테고리별 상품 조회 -->	
+	<select id="listCtgProduct" parameterType="string" resultMap="prdResult">
+		SELECT * FROM product WHERE ctgId=#{ctgId} ORDER BY prdNo
+	</select>
+	
+	<!-- 상품 상세 정보 조회 -->
+	<select id="detailViewProduct" parameterType="string" resultType="com.spring_boot.projectEx.model.ProductVO">
+  		select * from product where prdNo=#{prdNo}
+  	</select>
+
+</mapper>
+  
+  
